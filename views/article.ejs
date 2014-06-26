@@ -1,4 +1,4 @@
-<%- include header%>
+<%- include header %>
 <p>
 <% if(user && (user.name == post.name)) { %>
 <span>
@@ -19,6 +19,7 @@
     <% } %>
   <% }) %>
 </p>
-<p><%- post.post%></p>
+<p><%- post.post %></p>
+<p class='info'>阅读：<%= post.pv %> | 评论：<%= post.comments.length %> </p>
 <%- include comment %>
-<%- include footer%>
+<%- include footer %>
