@@ -58,13 +58,13 @@ router.post('/reg', function(req, res){
   //检查用户是否已经存在
   User.get(newUser.name, function(err, user){
   	if(user){
-  	  req.flash('err', '用户已存在');
+  	  req.flash('error', '用户已存在');
   	  return res.redirect('/reg');
   	}
   	//用户不存在，新建
   	newUser.save(function(err, user) {
   	  if(err){
-  	  	req.flash('err', err);
+  	  	req.flash('error', err);
   	  	return res.redirect('/reg');
   	  }
   	  req.session.user = user;//用户信息存入session
