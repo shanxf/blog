@@ -189,11 +189,6 @@ router.get('/u/:name', function (req, res) {
         req.flash('error', err);
         return res.redirect('/');
       }
-      console.log('////////:'+page);
-      console.log('////////:'+((page-1)*10 + posts.length));
-      console.log('////////:'+total);
-      console.log('////////:'+((page-1) == 0));
-      console.log('////////:'+(((page-1)*10 + posts.length) == total));
       res.render('user', {
         title: user.name,
         posts: posts,
