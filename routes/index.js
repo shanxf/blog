@@ -222,7 +222,6 @@ router.get('/tags/:tag', function (req, res) {
   });
 });
 router.get('/search', function (req, res) {
-console.log('//////////');
   Post.search(req.query.keyword, function (err, posts) {
     if (err) {
       req.flash('error', err);
@@ -340,6 +339,9 @@ router.get('/remove/:name/:day/:title', function (req, res) {
     req.flash('success', '删除成功');
     res.redirect('/');
   });
+});
+router.get('*', function (req, res) {
+  res.render("404");
 });
 function checkLogin(req, res, next){
   if (!req.session.user) {
