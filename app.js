@@ -13,7 +13,7 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 
 var fs = require('fs');
-var accessLog = fs.createWriteStream(__dirname + '/logs/access.log', {flags: 'a'});
+//var accessLog = fs.createWriteStream(__dirname + '/logs/access.log', {flags: 'a'});
 var errorLog = fs.createWriteStream(__dirname + '/logs/error.log', {flags: 'a'});
 
 var app = express();
@@ -25,7 +25,7 @@ app.use(flash());
 
 app.use(favicon(__dirname + '/public/images/favicon.ico'));
 app.use(logger('dev'));
-app.use(logger({stream: accessLog}));
+//app.use(logger({stream: accessLog}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
