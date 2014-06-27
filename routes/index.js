@@ -306,11 +306,12 @@ router.post('/u/:name/:day/:title', function (req, res) {
 router.get('/edit/:name/:day/:title', checkLogin);
 router.get('/edit/:name/:day/:title', function (req, res) {
   var currentUser = req.session.user;
-  Post.edit(currentUser, req.params.day, req.params.title, function (err, post) {
+  Post.edit(currentUser.name, req.params.day, req.params.title, function (err, post) {
     if (err) {
       req.flash('error',err);
       return res.redirect('back');
     }
+    console.log('>>>>>'+post);
     res.render('edit', {
       title: '编辑',
       post: post,
